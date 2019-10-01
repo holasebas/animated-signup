@@ -75,7 +75,7 @@ function switch_indicator(prev,next){
 
 $(document).ready(function(){
 
-    Init();
+     Init();
     
 });
 
