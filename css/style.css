@@ -21,8 +21,7 @@
     -webkit-transform: translateX(-25px);
     transform: translateX(-25px);
 
-    -webkit-transition: all 0.8s;
-    transition: all 0.8s;
+    
     color: #333;
 
 }
@@ -32,6 +31,8 @@
     bottom: 0;
 }
 .text_active{
+    -webkit-transition: all 0.8s;
+    transition: all 0.8s;
     -webkit-transform: translateX(0px) !important;
     transform: translateX(0px) !important;
 }
