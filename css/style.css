@@ -18,9 +18,13 @@
 #form_content #text_content .signup_text{
     position: absolute;
     top: 0px;
+    -webkit-transform: translateX(-25px);
     transform: translateX(-25px);
+
+    -webkit-transition: all 0.8s;
     transition: all 0.8s;
     color: #333;
+
 }
 .element{
     width: 100%;
@@ -28,9 +32,11 @@
     bottom: 0;
 }
 .text_active{
+    -webkit-transform: translateX(0px) !important;
     transform: translateX(0px) !important;
 }
 .text_hide{
+    -webkit-transform: translateX(25px) !important;
     transform: translateX(25px) !important;
 }
 .orange{
@@ -53,12 +59,20 @@ input{
     outline: none;
     width: 0px;
     height: 60px;
-    transition: width 0.4s, opacity 0.2s;
+    -webkit-transition: width 0.6s, opacity 0.3s;
+    transition: width 0.6s, opacity 0.3s;
     font-weight: lighter;
+}
+input::-webkit-autofill,
+input::-webkit-contacts-auto-fill-button,
+input::-webkit-credentials-auto-fill-button{
+    visibility: hidden;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
 }
 
 .active{
-    transition: width 1s !important;
     width: 240px !important;
     color:#333;
 }
@@ -71,22 +85,49 @@ svg {
     position: absolute;
     bottom: 0px;
     right: -30px;
+    -webkit-transition: opacity 0.2s;
     transition: opacity 0.2s;
 }
 .path {
     stroke-dasharray:300;
     stroke-dashoffset:300;
-    transition: stroke-dashoffset 1s;
+    -webkit-transition-timing-function:ease-in-out;
     transition-timing-function:ease-in-out;
 }
+
+
+
 .path_active{
-    stroke-dashoffset: -250;
+    animation: path_active 0.8s;
 }
+
+.path_backwords{
+    animation: path_backwords 0.8s;
+}
+
+@keyframes path_active{
+    from{
+        stroke-dashoffset:300; 
+    }
+    to{
+        stroke-dashoffset:0; 
+    }
+}
+
+@keyframes path_backwords{
+    from{
+        stroke-dashoffset:600; 
+    }
+    to{
+        stroke-dashoffset:300; 
+    }
+}
+
 .icon{
     position: absolute;
     width: 60px;
     height: 60px;
-
+    
     bottom: 0px;
     right:-8px;
     border-radius: 50%;
@@ -100,14 +141,18 @@ svg {
     height: 0px;
     top: 50%;
     left: 50%;
+    -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     background: rgba(0,0,0,0.2);
     border-radius: 50%;
+  
+    -webkit-transition: all 0.6s, opacity 1s;
     transition: all 0.6s, opacity 0.8s;
 }
 
 .element #icon span{
     margin-left: -30px;
+    -webkit-ttransition: opacity 0.3s, margin 0.3s;
     transition: opacity 0.3s, margin 0.3s;
 }
 #element_a #icon span{
@@ -131,7 +176,7 @@ svg {
     opacity: 0 !important;
 }
 .icon_active{
-    border: 1px solid #aaa !important;
+    border: 2px solid #aaa !important;
     opacity: 0 !important;
     width: 60px !important;
     height: 60px !important;
@@ -149,12 +194,15 @@ svg {
     position: absolute;
     top:50%;
     left:50%;
+    -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     width: 6px;
     height: 6px;
     border-radius: 50%;
     background: #ccc;
+    -webkit-transition: all 0.1s;
     transition: all 0.1s;
+    -webkit-transition-timing-function: linear;
     transition-timing-function: linear;
 }
 .indicator_active{

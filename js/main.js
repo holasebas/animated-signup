@@ -30,11 +30,12 @@ function next(el,step,placeholder){
             
 
         $(el).parent().find("#svg").removeClass("hide").addClass("show");
-        $(el).parent().find(".path").addClass("path_active");
+        circle_path(el);
 
         $(".signup_text[data-element='"+step+"']").addClass("hide");
 
     },600)
+
 
     setTimeout(function(){
         $(el).parent().find("input").addClass("hide d-none");
@@ -57,10 +58,10 @@ function next(el,step,placeholder){
 
             $(".element[data-step='"+x+"'] input").attr("placeholder",placeholder).focus();
 
-        },1200)
+        },800)
 
 
-    },1600)
+    },1500)
 
 }
 
@@ -68,6 +69,13 @@ function next(el,step,placeholder){
 function switch_indicator(prev,next){
     $(".indicator[data-indicator='"+next+"'] .bullet").addClass("indicator_active "+indicators_palletclass[next]);
     $(".indicator[data-indicator='"+prev+"'] .bullet").removeClass("indicator_active "+indicators_palletclass[prev]);
+}
+
+function circle_path(el){
+    $(el).parent().find(".path").addClass("path_active");
+    setTimeout(function(){
+        $(el).parent().find(".path").addClass("path_backwords");
+    },350)
 }
 
 
